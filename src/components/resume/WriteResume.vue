@@ -1,0 +1,109 @@
+<template>
+  <div>
+    <div class="write-resume">
+      <codemirror
+          :style="editorStyle"
+          v-model="resumeYaml"
+          :options="editorOptions"
+      >
+      </codemirror>
+    </div>
+  </div>
+</template>
+
+<style scoped>
+.write-resume {
+  width: 100%;
+}
+
+</style>
+
+<script lang="ts">
+
+import {Codemirror} from "vue-codemirror";
+import {oneDark} from '@codemirror/theme-one-dark'
+
+export default {
+  name: "WriteResume",
+  components: {Codemirror},
+
+  data() {
+    return {
+      editorOptions: {
+        tabSize: 2,
+        mode: 'yaml',
+        theme: 'cobalt', // 设置主题
+        lineNumbers: true,
+      },
+      resumeYaml: `person:
+  name: 求职者
+  job: Java开发工程师
+
+personalInfo:
+  leftCols:
+    - key: 电话
+      value: 18755555555
+    - key: 邮箱
+      value: qiuzhizhe@foxmail.com
+  rightCol:
+    personalIntroduction:
+
+technicalSkills:
+  - key: Java
+    value: 集合、Lambda、JVM 原理、并发编程、线程池使用。
+  - key: 数据库
+    value: MySQL、SQL 优化。
+  - key: 中间件
+    value: Redis、RabbitMQ、Canal。
+  - key: 框架
+    value: Spring Boot、Spring Cloud，包含 Nacos、Seata 等组件。
+  - key:
+    value: 熟悉Docker、K8s。
+
+workExperience:
+  - companyName: 科技有限公司
+    position: Java开发工程师
+    startDate: 2023.05
+    endDate: 2024.01
+    summary: 在科技有限公司工作期间，我担任Java开发工程师的角色，负责产品2.0的开发和基础模块的优化。
+    projects:
+      - projectName: 项目名称
+        projectSummary: 作为Java开发人员，参与项目的开发，成功实现了数据同步、消息分发、灵活接口平台等功能，并对基础模块进行了优化，解决了结息数据量大的性能问题。
+    responsibilities:
+      - 实时同步楼房信息：利用Canal技术实现楼幢、单元、房屋信息的实时同步，提升数据实时性和一致性，以优化用户体验。
+      - 消息分发和发送平台：构建自定义消息模板和分发平台，支持多模块对用户的信息推送，包括站内消息和短信通知。使用线程池和RabbitMQ提高消息传递效率，从而提高用户体验。
+      - 接口平台：实现了对外接口和内部服务的第三方调用，动态创建特定泛型参数的类实例，并通过Jackson对XML解析，实现了泛型支持。新增接口配置，将业务模块的外部接口调用交由接口平台来处理。
+      - 优化基础模块：优化脱敏规则，支持脱敏和未脱敏切换和正则表达式的支持，提高系统安全性，同时使脱敏操作更加灵活。
+      - 卖旧买新模块：优化了数据保存接口，通过使用Java的CompletableFuture实现了远程接口的并行调用，提高了接口的响应速度.
+
+education:
+  school: 'XXXXXX大学'
+  degree: '本科'
+  major: '计算机科学与技术'
+  graduationDate: '2016-2020'
+
+
+
+`,
+    };
+  },
+  computed: {
+    editorStyle() {
+      return {'font-size': '16px'}
+    },
+  },
+  created() {
+    this.updateResume();
+  },
+  watch: {
+    resumeYaml() {
+      this.updateResume();
+    },
+  },
+  methods: {
+    updateResume() {
+      this.$emit('updateResume', this.resumeYaml);
+    }
+  },
+}
+</script>

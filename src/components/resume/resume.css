@@ -1,0 +1,160 @@
+/*@page {*/
+/*    margin: 15mm 3mm; !* 上下边距为10mm，左右边距为5mm *!*/
+/*}*/
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: "Source Han Serif", serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container {
+    width: 190mm;
+}
+
+.personal {
+    display: flex;
+    align-items: center;
+    margin: 0;
+}
+
+.personal h1 {
+    margin-right: 5px;
+    font-size: 24px;
+    font-family: "Source Han Sans", sans-serif;
+    color: black;
+}
+
+.in-title {
+    margin-right: 5px;
+    font-size: 24px;
+    font-family: "Source Han Sans", sans-serif;
+    color: black;
+}
+
+.personal span {
+    color: #888;
+}
+
+.personal p {
+    color: #888;
+    font-size: 20px;
+    margin: 0;
+}
+
+.personal-info {
+    display: flex;
+    margin-top: 5px;
+}
+
+.personal-info .left-col {
+    width: 50%;
+    padding: 0;
+}
+
+.personal-info .right-col {
+    width: 50%;
+    padding: 0;
+}
+
+.personal-info p {
+    font-size: 16px;
+    line-height: 1.5;
+    margin: 0;
+}
+
+.technical-skills {
+    display: flex;
+    margin-top: 10px;
+}
+
+.technical-skills .left-col {
+    width: 0%;
+    padding: 0;
+}
+
+.technical-skills .right-col {
+    width: 100%;
+    padding: 0;
+}
+
+.left-col p {
+    font-weight: bold;
+}
+
+.technical-skills h2 {
+    font-size: 18px;
+    margin-bottom: 5px;
+    font-family: "Source Han Sans", sans-serif;
+    color: black;
+}
+
+.technical-skills p {
+    font-size: 16px;
+    line-height: 1.5;
+    margin: 0;
+}
+
+.job {
+    display: flex;
+    justify-content: space-between;
+}
+
+.job p {
+    white-space: nowrap;
+    margin: 0;
+    font-size: 18px;
+}
+
+.job p strong,
+.project-summary p strong,
+.technical-skills p strong {
+    font-family: 'Source Han Sans', sans-serif;
+    font-weight: normal; /* 如果需要取消加粗效果 */
+}
+
+.job-summary p,
+.project-summary p {
+    font-size: 16px;
+    line-height: 1.5;
+}
+
+/*.project-summary p strong {*/
+/*    font-family: 'Source Han Sans', sans-serif;*/
+/*    font-weight: normal; !* 如果需要取消加粗效果 *!*/
+/*}*/
+
+
+.work-experience ul {
+    list-style-type: disc;
+    margin-left: 0;
+    padding-left: 20px;
+}
+
+.education {
+    margin-top: 10px;
+}
+
+.education p {
+    display: flex;
+    justify-content: space-between;
+}
+
+.work-experience ul {
+    list-style-type: disc;
+    margin-left: 0;
+    padding-left: 20px;
+}
+
+.work-experience ul li {
+    font-size: 16px;
+    line-height: 1.5; /* Adjust the line height as needed */
+    margin-bottom: 8px; /* Add margin between list items */
+}
+
+.job {
+    margin-top: 30px; /* Adjust the value as needed for the desired spacing */
+}
