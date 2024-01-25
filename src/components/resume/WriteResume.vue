@@ -23,6 +23,7 @@
 import {Codemirror} from "vue-codemirror";
 import {oneDark} from '@codemirror/theme-one-dark'
 
+const STORAGE_KEY = 'resumeContent';
 export default {
   name: "WriteResume",
   components: {Codemirror},
@@ -93,6 +94,9 @@ education:
     },
   },
   created() {
+    // 从本地存储加载内容
+    const storedContent = localStorage.getItem(STORAGE_KEY);
+    this.resumeYaml = storedContent || this.resumeYaml;
     this.updateResume();
   },
   watch: {
@@ -102,7 +106,11 @@ education:
   },
   methods: {
     updateResume() {
+      this.saveResumeToStorage();
       this.$emit('updateResume', this.resumeYaml);
+    },
+    saveResumeToStorage() {
+      localStorage.setItem(STORAGE_KEY, this.resumeYaml);
     }
   },
 }
